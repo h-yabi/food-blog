@@ -1,0 +1,142 @@
+@import '../common/_setting'
+
+
+.contents
+  &_blog
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    align-items: flex-start
+    position: relative
+    max-width: 1100px
+    margin-top: 30px
+    @include sp
+      display: block
+    h2
+      position: relative
+      margin-top: 3rem
+      margin-bottom: 1.5rem
+      padding: .5rem 0
+      border-bottom: 3px solid #ddd
+      font-size: 26px
+      letter-spacing: .03em
+      &:first-child
+        margin-top: 0
+      &:before
+        position: absolute
+        content: " "
+        width: 100px
+        bottom: -3px
+        height: 3px
+        background: linear-gradient(-45deg, rgba(246, 255, 0, 0.8), rgba(255, 0, 161, 0.8))
+      @include sp
+        font-size: 18px
+    h3
+      position: relative
+      margin: 2rem 0 1rem
+      padding: .5rem 0
+      font-size: 20px
+      &:before
+        position: absolute
+        content: " "
+        width: 100px
+        bottom: -3px
+        height: 2px
+        background-color: #dadada
+      @include sp
+        font-size: 16px
+
+.article_detail
+  padding: 30px
+  background: #fff
+  @include pcOnly
+    width: 70%
+  @include sp
+    padding: 15px
+  p
+    margin-bottom: 1.5rem
+    line-height: 1.8
+  a
+    &:hover
+      text-decoration: underline
+
+.article
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+
+.article_list
+  @include pcOnly
+    width: 48.5%
+  background: #fff
+  border-bottom: 1px solid #ebf2f6
+  border-radius: 4px
+  box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05)
+  @include sp
+    width: 100%
+  &:nth-child(n+3)
+    @include pcOnly
+      margin-top: 30px
+  a
+    display: block
+    &:hover
+      img
+        transform: scale(1.07)
+
+.article_list_img
+  @include responsive-ratio-box(50%)
+  &:before
+    @include sp
+      padding-top: 35%
+  img
+    @include object-fit
+    @include transition-hover()
+
+.article_list_text
+  padding: 20px
+  color: #4a4a4a
+  letter-spacing: .05em
+
+.article_title
+  margin-bottom: 10px
+
+.article_description
+  margin-bottom: 25px
+  font-size: 14px
+
+.pageNavi
+  order: 3
+  width: 100%
+
+.tableOfContent
+  line-height: 1.5
+  @include pcOnly
+    position: sticky
+    top: 20px
+    order: 2
+    width: 25%
+  @include sp
+    margin-bottom: 20px
+  p
+    margin-bottom: 0
+  ul
+    ul
+      margin-top: 0
+  a
+    display: block
+    padding: 3px 5px
+    color: #4a4a4a
+    font-size: 14px
+    &:hover
+      background: rgba(253, 246, 227, .8)
+
+.icon_calendar
+  margin-right: 10px
+
+.article_list_date
+  color: #aaa
+  font-weight: normal
+  letter-spacing: .1em
+
+pre[class*="language-"]
+  margin-bottom: 30px
