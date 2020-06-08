@@ -1,10 +1,11 @@
 ---
-title: 【Gatsby】投稿の見出しにidを付与する方法
+title: 上野の美味しい居酒屋 - 2
 description: md（mdx）で作成した記事の見出しにidを付与する方法を備忘録として残しておきます。
 date: 2020-05-24
 mainImg: gatsby-img.jpg
-categories: ['React']
-subCategories: ['Gatsby']
+category: tokyo
+subCategory: ueno
+thirdCategory: ramen
 ---
 
 

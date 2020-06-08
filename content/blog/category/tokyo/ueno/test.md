@@ -1,10 +1,11 @@
 ---
-title: 上野の美味しい居酒屋
+title: 焼きあご塩ラーメン
 description: md（mdx）で作成した記事の見出しにidを付与する方法を備忘録として残しておきます。
 date: 2020-05-24
 mainImg: gatsby-img.jpg
-categories: ['Tokyo']
-subCategories: ['ueno']
+category: tokyo
+subCategory: ueno
+thirdCategory: ramen
 ---
 
 

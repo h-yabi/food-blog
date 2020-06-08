@@ -1,11 +1,11 @@
 ---
-title: 中野のお店
+title: 蒙古タンメン中本
 description: md（mdx）で作成した記事の見出しにidを付与する方法を備忘録として残しておきます。
-date: 2020-05-22
+date: 2020-05-24
 mainImg: gatsby-img.jpg
 category: tokyo
-subCategory: nakano
-thirdCategory: cheap_ueno_izakaya
+subCategory: ueno
+thirdCategory: ramen
 ---
 
 

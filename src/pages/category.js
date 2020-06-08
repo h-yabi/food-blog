@@ -4,6 +4,8 @@ import kebabCase from "lodash/kebabCase"
 // Components
 import { Helmet } from "react-helmet"
 import { Link, graphql } from "gatsby"
+import { useCourtsMetadata } from '../hooks/courts-metadata'
+import shortid from 'shortid';
 
 const CategoryPage = ({
   data: {
@@ -12,23 +14,29 @@ const CategoryPage = ({
       siteMetadata: { title },
     },
   },
-}) => (
-  <div>
-    <Helmet title={title} />
+}) => {
+  const courts = useCourtsMetadata()
+
+  return (
     <div>
-      <h1>カテゴリー一覧</h1>
-      <ul>
-        {group.map(category => (
-          <li key={category.fieldValue}>
-            <Link to={`/category/${kebabCase(category.fieldValue)}/`}>
-              {category.fieldValue} ({category.totalCount})
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <Helmet title={title} />
+      <div>
+        <h1>カテゴリー一覧</h1>
+        <ul>
+          {courts.map(value => {
+            return (
+              <li key={shortid.generate()}>
+                <Link to={`/category/${kebabCase(value.path)}/`}>
+                  {value.prefecture}
+                </Link>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
     </div>
-  </div>
-)
+  )
+}
 
 export default CategoryPage
 export const pageQuery = graphql`
@@ -39,7 +47,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(limit: 2000) {
-      group(field: frontmatter___categories) {
+      group(field: frontmatter___category) {
         fieldValue
         totalCount
       }

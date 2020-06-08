@@ -20,18 +20,23 @@ exports.createPages = async ({ graphql, actions }) => {
               frontmatter {
                 title
                 description
-                categories
+                category
               }
             }
           }
         }
         categoriesGroup: allMarkdownRemark(limit: 2000) {
-          group(field: frontmatter___categories) {
+          group(field: frontmatter___category) {
             fieldValue
           }
         }
         subCategoriesGroup: allMarkdownRemark(limit: 2000) {
-          group(field: frontmatter___subCategories) {
+          group(field: frontmatter___subCategory) {
+            fieldValue
+          }
+        }
+        thirdCategoriesGroup: allMarkdownRemark(limit: 2000) {
+          group(field: frontmatter___thirdCategory) {
             fieldValue
           }
         }
@@ -69,6 +74,9 @@ exports.createPages = async ({ graphql, actions }) => {
   const subCategories = result.data.subCategoriesGroup.group
   const subCategoriesList = path.resolve(`./src/templates/subCategories-template.js`)
 
+  const thirdCategories = result.data.thirdCategoriesGroup.group
+  const thirdCategoriesList = path.resolve(`./src/templates/thirdCategories-template.js`)
+
 
   categories.forEach(category => {
     createPage({
@@ -86,11 +94,17 @@ exports.createPages = async ({ graphql, actions }) => {
           subCategory: subCategory.fieldValue,
         },
       })
+      thirdCategories.forEach(thirdCategory => {
+        createPage({
+          path: `/category/${_.kebabCase(category.fieldValue)}/${_.kebabCase(subCategory.fieldValue)}/${_.kebabCase(thirdCategory.fieldValue)}`,
+          component: thirdCategoriesList,
+          context: {
+            thirdCategory: thirdCategory.fieldValue,
+          },
+        })
+      })
     })
   })
-
-
-
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {

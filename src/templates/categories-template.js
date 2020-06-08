@@ -1,25 +1,33 @@
 import React from "react"
 // Components
 import { Link, graphql } from "gatsby"
+import { useCourtsMetadata } from '../hooks/courts-metadata'
+import shortid from 'shortid';
+
 const Categories = ({ pageContext, data }) => {
   const { category } = pageContext
-  const { edges } = data.allMarkdownRemark
+  // const { edges } = data.allMarkdownRemark
+  const couts = useCourtsMetadata()
+  const court = couts.filter(court => court.path === category)
+  const courtPth = court[0].path
 
   return (
     <div>
-      <h1>{category}</h1>
+      <h1>{court[0].prefecture}</h1>
       <ul>
-        {edges.map(({ node }) => {
-          const { slug } = node.fields
-          const { title } = node.frontmatter
-          return (
-            <li key={slug}>
-              <Link to={slug}>{title}</Link>
-            </li>
-          )
-        })}
+        {
+          court[0].categories.map(category => {
+            return (
+              <li key={shortid.generate()}>
+                <Link to={`category/${courtPth}/${category.path}`}>
+                  {category.city}
+                </Link>
+              </li>
+            )
+          })
+        }
       </ul>
-      <Link to="/category">全てのカテゴリー</Link>
+      <Link to="/category">戻る</Link>
     </div>
   )
 }
@@ -31,7 +39,11 @@ export const pageQuery = graphql`
     allMarkdownRemark(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { categories: { in: [$category] } } }
+      filter: {
+        frontmatter: {
+          category: { in: [$category] },
+        }
+      }
     ) {
       totalCount
       edges {
@@ -41,6 +53,8 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
+            category
+            subCategory
           }
         }
       }
