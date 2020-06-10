@@ -6,28 +6,26 @@ import shortid from 'shortid';
 
 const ThirdCategories = ({ pageContext, data }) => {
   const edges = data.allMarkdownRemark.edges
-  const node = data.allMarkdownRemark.edges[0].node
-  const frontmatter = node.frontmatter
-  const fields = node.fields
-  const prefecturePath = frontmatter.category
-  const cityPath = frontmatter.subCategory
-  const thirdCategoryPath = frontmatter.thirdCategory
+  const pathArray = window.location.pathname.split('/')
+  const prefecturePath = pathArray[pathArray.length - 3]
+  const cityPath = pathArray[pathArray.length - 2]
+  const thirdCategoryPath =pathArray[pathArray.length - 1]
 
   const couts = useCourtsMetadata()
   const prefectureCourt = couts.filter(court => court.path === prefecturePath)
   const cityCourt = prefectureCourt[0].categories.filter(court => court.path === cityPath)
   const featureCourt = cityCourt[0].subCategories.filter(court => court.path === thirdCategoryPath)
+  console.log(couts)
 
   return (
     <div>
-      <h1>{featureCourt[0].title}</h1>
+      <h1>{featureCourt[0].pageTitle}</h1>
       <ul>
         {
           edges.map(edge => {
             const node = edge.node
             const fields = node.fields
             const frontmatter = node.frontmatter
-            console.log(edge)
 
             return (
               <li key={shortid.generate()}>
@@ -39,7 +37,7 @@ const ThirdCategories = ({ pageContext, data }) => {
           })
         }
       </ul>
-      <Link to={`category/${prefecturePath}`}>戻る</Link>
+      <Link to={`category/${prefecturePath}/${cityPath}`}>戻る</Link>
     </div>
   )
 }
@@ -51,7 +49,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { thirdCategory: { in: [$thirdCategory] } } }
+      filter: { frontmatter: { thirdCategories: { in: [$thirdCategory] } } }
     ) {
       totalCount
       edges {
@@ -63,7 +61,7 @@ export const pageQuery = graphql`
             title
             category
             subCategory
-            thirdCategory
+            thirdCategories
           }
         }
       }

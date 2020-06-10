@@ -1,11 +1,11 @@
 ---
-title: 上野の美味しい居酒屋 - 2
+title: 麺処 花田
 description: md（mdx）で作成した記事の見出しにidを付与する方法を備忘録として残しておきます。
 date: 2020-05-24
 mainImg: gatsby-img.jpg
 category: tokyo
 subCategory: ueno
-thirdCategory: ramen
+thirdCategories: ["ramen", "ramen-kotteri"]
 ---
 
 

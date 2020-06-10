@@ -5,7 +5,7 @@ date: 2020-05-24
 mainImg: gatsby-img.jpg
 category: tokyo
 subCategory: ueno
-thirdCategory: ramen
+thirdCategories: ["ramen", "ramen-kotteri", "ramen-ranking"]
 ---
 
 

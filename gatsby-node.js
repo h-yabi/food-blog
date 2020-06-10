@@ -21,6 +21,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 title
                 description
                 category
+                thirdCategories
               }
             }
           }
@@ -36,7 +37,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
         thirdCategoriesGroup: allMarkdownRemark(limit: 2000) {
-          group(field: frontmatter___thirdCategory) {
+          group(field: frontmatter___thirdCategories) {
             fieldValue
           }
         }
