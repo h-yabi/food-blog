@@ -10,9 +10,13 @@ const { allCourtsJson } = useStaticQuery(
                         courtsMetadata {
                             id
                             prefecture
+                            pageTitle
+                            description
                             path
                             categories {
                                 city
+                                pageTitle
+                                description
                                 path
                                 subCategories {
                                     title

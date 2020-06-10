@@ -26,7 +26,7 @@ const PostsHeader = ({ overview }) => {
         }}
       >
         <Link to="/" className={styles.textLogo}>
-          Yabi Blog
+          めし屋ブログ
         </Link>
         <h1 className={`${styles.title} ${styles.postTitle}`}>{title}</h1>
         <div className={styles.date}>

@@ -5,8 +5,7 @@ const Footer = () => {
   return (
     <div className={styles.footerWrap}>
       <footer className={styles.footer}>
-        <div className={styles.footer__title}>Yabi Blog</div>
-        Copyright © {new Date().getFullYear()}. h-yabi
+        Copyright © {new Date().getFullYear()}. めし屋ブログ
       </footer>
     </div>
   )

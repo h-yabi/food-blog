@@ -24,7 +24,7 @@ const BlogIndex = ({ path, data }) => {
   return (
     <Layout title={siteTitle}>
       <SEO
-        title="Yabi Blog"
+        title="めし屋ブログ"
       />
       <Header overview={data.site.siteMetadata} path={path} />
       <main className={styles.contents}>
