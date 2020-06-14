@@ -2,10 +2,21 @@
 title: 麺処 花田
 description: md（mdx）で作成した記事の見出しにidを付与する方法を備忘録として残しておきます。
 date: 2020-05-24
+path: hanada
 mainImg: gatsby-img.jpg
 category: tokyo
 subCategory: ueno
-thirdCategories: ["ramen", "ramen-kotteri"]
+thirdCategories: [ramen, ramen-kotteri]
+thirdCategoriesName: [
+  {
+    path: ramen,
+    name: ラーメン
+  },
+  {
+    path: ramen-kotteri,
+    name: こってり系
+  },
+]
 ---
 
 

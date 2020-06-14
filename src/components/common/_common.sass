@@ -1,15 +1,56 @@
 @import '../common/_setting'
 
-
-// html
-//   scroll-behavior: smooth
-
 .wrapper
   background: #f6f6f4
 
 .contents
-  max-width: 1030px
-  margin: 100px auto
-  padding: 0 15px
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  align-items: flex-start
+  position: relative
+  max-width: 1240px
+  margin: 30px auto
+  padding: 0 20px
   @include sp
     margin-top: 20px
+
+.article
+  width: 100%
+  float: left
+
+.articleInner
+  margin-right: 330px
+
+.sideNav
+  width: 300px
+  float: left
+  margin-left: -300px
+
+
+// ---------------------------------
+// button
+// ---------------------------------
+
+.button
+  display: block
+  position: relative
+  bottom: 0
+  width: 60%
+  max-width: 400px
+  margin: 0 auto
+  padding: 20px 24px
+  border: 1px #ff9933 solid
+  border-radius: 8px
+  box-shadow: 0 5px 0 #e8892b
+  line-height: 26px
+  background: linear-gradient(90deg,#f98214,#f7bb64)
+  color: #fff
+  font-size: 18px
+  font-weight: bold
+  text-align: center
+  transition: all ease-in-out .3s
+  &:hover
+    bottom: -5px
+    box-shadow: none
+    text-decoration: none

@@ -18,6 +18,7 @@ const ThirdCategories = ({ pageContext, data }) => {
   const prefectureCourt = couts.filter(court => court.path === prefecturePath)
   const cityCourt = prefectureCourt[0].categories.filter(court => court.path === cityPath)
   const featureCourt = cityCourt[0].subCategories.filter(court => court.path === thirdCategoryPath)
+  console.log(data)
 
   return (
     <Layout>
@@ -26,7 +27,9 @@ const ThirdCategories = ({ pageContext, data }) => {
         description={featureCourt[0].description}
       />
       <div>
+        <p>yabiku</p>
         <h1>{featureCourt[0].pageTitle}</h1>
+
         <ul>
           {
             edges.map(edge => {
@@ -71,6 +74,10 @@ export const pageQuery = graphql`
             category
             subCategory
             thirdCategories
+            thirdCategoriesName {
+              path
+              name
+            }
           }
         }
       }

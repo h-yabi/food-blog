@@ -3,15 +3,6 @@
 
 .contents
   &_blog
-    display: flex
-    flex-wrap: wrap
-    justify-content: space-between
-    align-items: flex-start
-    position: relative
-    max-width: 1100px
-    margin-top: 30px
-    @include sp
-      display: block
     h2
       position: relative
       margin-top: 3rem
@@ -60,30 +51,22 @@
     &:hover
       text-decoration: underline
 
-.article
-  display: flex
-  flex-wrap: wrap
-  justify-content: space-between
-
 .article_list
-  @include pcOnly
-    width: 48.5%
+  margin-bottom: 50px
+  padding: 40px
   background: #fff
   border-bottom: 1px solid #ebf2f6
   border-radius: 4px
   box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05)
   @include sp
     width: 100%
-  &:nth-child(n+3)
-    @include pcOnly
-      margin-top: 30px
-  a
-    display: block
-    &:hover
-      img
-        transform: scale(1.07)
+  &:last-child
+    margin-bottom: 0
 
 .article_list_img
+  width: 100%
+  max-width: 300px
+  margin-left: 20px
   @include responsive-ratio-box(50%)
   &:before
     @include sp
@@ -92,17 +75,19 @@
     @include object-fit
     @include transition-hover()
 
-.article_list_text
-  padding: 20px
+.article_list_imgTextWrap
+  display: flex
+  margin-bottom: 50px
   color: #4a4a4a
   letter-spacing: .05em
 
 .article_title
-  margin-bottom: 10px
+  margin: 20px 0 30px
+  font-size: 28px
 
 .article_description
   margin-bottom: 25px
-  font-size: 14px
+  line-height: 1.8
 
 .pageNavi
   order: 3
@@ -134,9 +119,34 @@
   margin-right: 10px
 
 .article_list_date
-  color: #aaa
+  margin-bottom: 15px
   font-weight: normal
   letter-spacing: .1em
+  span
+    font-size: 14px
 
 pre[class*="language-"]
   margin-bottom: 30px
+
+.categoryLink
+  display: inline-block
+  position: relative
+  margin-right: 10px
+  padding: 3px 25px 3px 10px
+  background: #ccc
+  border-radius: 3px
+  color: #fff
+  font-size: 14px
+  &:after
+    position: absolute
+    top: 0
+    right: 10px
+    bottom: 0
+    width: 0
+    height: 0
+    margin: auto
+    border-top: 4px solid transparent
+    border-bottom: 4px solid transparent
+    border-left: 5px solid #fff
+    content: ""
+

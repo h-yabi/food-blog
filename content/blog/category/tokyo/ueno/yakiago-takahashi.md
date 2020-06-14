@@ -2,10 +2,25 @@
 title: 焼きあご塩ラーメン
 description: md（mdx）で作成した記事の見出しにidを付与する方法を備忘録として残しておきます。
 date: 2020-05-22
+path: yakiago-takahashi
 mainImg: gatsby-img.jpg
 category: tokyo
-subCategory: ueno
-thirdCategories: ["ramen", "ramen-assari", "ramen-ranking"]
+subCategory: shinjuku
+thirdCategories: [ramen, ramen-assari, ramen-ranking]
+thirdCategoriesName: [
+  {
+    path: ramen,
+    name: ラーメン
+  },
+  {
+    path: ramen-assari,
+    name: あっさり系
+  },
+  {
+    path: ramen-ranking,
+    name: ランキング
+  },
+]
 ---
 
 
